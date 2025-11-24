@@ -1,0 +1,66 @@
+# Formative-Activities_Intelligent-Agents
+Step 1: Alice requests Bob for details about the 50-inch televisions available in the warehouse (combined query)
+
+Alice (asking about both stock and HDMI slots):
+
+request(Bob, (get-product-info 50-inch-television))
+
+
+Explanation:
+
+request is a KQML performative where Alice asks Bob to provide specific details about the 50-inch televisions.
+
+The (get-product-info 50-inch-television) is the KIF query asking for information about both the stock quantity and the number of HDMI slots.
+
+Step 2: Bob responds with the available stock and HDMI slot information in a single message
+
+Bob (responding with the combined details):
+
+inform(Alice, (product-info-response 50-inch-television (stock 200) (hdmi-slots 3)))
+
+
+Explanation:
+
+inform is used here by Bob to send a comprehensive response, meaning that Bob is providing Alice with the requested product information.
+
+The (product-info-response 50-inch-television (stock 200) (hdmi-slots 3)) is the KIF content where Bob informs Alice that the warehouse currently has 200 units of 50-inch televisions in stock and each unit has 3 HDMI slots.
+
+Step 3: Alice requests more detailed information about the availability of other sizes (for potential expansion)
+
+Alice (asking about the availability of other TV sizes):
+
+query(Bob, (get-stock-levels))
+
+
+Explanation:
+
+query is a KQML performative used by Alice to ask Bob for a more general overview of all available TV sizes in stock.
+
+The (get-stock-levels) is a KIF query asking Bob to provide the stock levels for various types of televisions, beyond just the 50-inch models.
+
+Step 4: Bob responds with a broader inventory overview
+
+Bob (responding with the full stock levels for multiple TV sizes):
+
+inform(Alice, (stock-levels 50-inch 200 42-inch 150 60-inch 50))
+
+
+Explanation:
+
+inform is again used to provide the detailed stock levels for multiple TV sizes (50-inch, 42-inch, and 60-inch).
+
+The KIF content (stock-levels 50-inch 200 42-inch 150 60-inch 50) shows that Bob has information on the availability of 50-inch TVs (200 units), 42-inch TVs (150 units), and 60-inch TVs (50 units).
+
+Workflow:
+
+# Alice requests Bob for detailed information on the 50-inch televisions
+request(Bob, (get-product-info 50-inch-television))
+
+# Bob responds with stock and HDMI slot details for the 50-inch televisions
+inform(Alice, (product-info-response 50-inch-television (stock 200) (hdmi-slots 3)))
+
+# Alice queries Bob about the stock levels for other television sizes
+query(Bob, (get-stock-levels))
+
+# Bob responds with the stock levels for 50-inch, 42-inch, and 60-inch televisions
+inform(Alice, (stock-levels 50-inch 200 42-inch 150 60-inch 50))
